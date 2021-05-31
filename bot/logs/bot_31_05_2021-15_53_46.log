@@ -1,0 +1,10 @@
+2021-05-31 15:53:46,552 - sqlalchemy.engine.Engine - INFO - select version()
+2021-05-31 15:53:46,552 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2021-05-31 15:53:46,552 - sqlalchemy.engine.Engine - INFO - select current_schema()
+2021-05-31 15:53:46,552 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2021-05-31 15:53:46,552 - sqlalchemy.engine.Engine - INFO - show standard_conforming_strings
+2021-05-31 15:53:46,552 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2021-05-31 15:53:46,552 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2021-05-31 15:53:46,552 - sqlalchemy.engine.Engine - INFO - COMMIT
+2021-05-31 15:53:52,289 - pyrogram.client - WARNING - [bot] No plugin loaded from "bot.plugins"
+2021-05-31 15:53:52,730 - bot - INFO - Starting bot...

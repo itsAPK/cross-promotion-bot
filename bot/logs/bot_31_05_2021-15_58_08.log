@@ -1,0 +1,18 @@
+2021-05-31 15:58:09,282 - sqlalchemy.engine.Engine - INFO - select version()
+2021-05-31 15:58:09,283 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2021-05-31 15:58:09,285 - sqlalchemy.engine.Engine - INFO - select current_schema()
+2021-05-31 15:58:09,286 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2021-05-31 15:58:09,287 - sqlalchemy.engine.Engine - INFO - show standard_conforming_strings
+2021-05-31 15:58:09,287 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2021-05-31 15:58:09,287 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2021-05-31 15:58:09,287 - sqlalchemy.engine.Engine - INFO - COMMIT
+2021-05-31 15:58:15,499 - pyrogram.client - WARNING - [bot] No plugin loaded from "bot.plugins"
+2021-05-31 15:58:15,870 - bot - INFO - Starting bot...
+2021-05-31 15:58:16,058 - bot - INFO - Pyrogram v1.2.9 (Layer - 126) started on terabyt3promobot [1274744123]
+2021-05-31 15:58:16,058 - bot - INFO - Python Version: 3.8.0
+
+2021-05-31 15:58:16,058 - bot - INFO - Bot Started Successfully!
+
+2021-05-31 15:58:21,878 - root - INFO - Stop signal received (2). Exiting...
+2021-05-31 15:58:22,585 - bot - INFO - Uploading logs before stopping...!
+
