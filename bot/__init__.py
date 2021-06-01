@@ -32,7 +32,7 @@ basicConfig(
 )
 
 getLogger("pyrogram").setLevel(WARNING)
-
+    
 
 LOGGER = getLogger(__name__)
 

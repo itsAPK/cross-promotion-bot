@@ -40,7 +40,7 @@ class Bot(Client):
         await super().start() 
         LOGGER.info("Starting bot...")
         
-        me=await self.get_me()
+        me=await self.get_me()  
         LOGGER.info(
             f"Pyrogram v{__version__} (Layer - {layer}) started on {me.username} [{me.id}]",
         )

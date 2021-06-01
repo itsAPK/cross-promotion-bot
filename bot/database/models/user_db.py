@@ -32,7 +32,7 @@ class Admin(base):
     chat_id=Column(Integer)
 
     def __init__(self,chat_id):
-        self.chat_id=chat_id
+        self.chat_id=chat_id  
 
     def __repr__(self):
         return f'{self.id}'

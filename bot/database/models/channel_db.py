@@ -29,7 +29,7 @@ class Channel(base):
     
 Channel.__table__.create(checkfirst=True)
 
-class Ban(base):
+class Ban(base):  
     __tablename__ = 'ban_channel'
     id = Column(Integer, primary_key=True)
     channel_id=Column(BigInteger)
