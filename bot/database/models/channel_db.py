@@ -3,7 +3,9 @@ from sqlalchemy.sql import exists
 from bot.database import base,session
 import datetime
 from bot import LOGGER
+import threading
 
+LOCK=threading.RLock()
 
 class Channel(base):
     __tablename__ = 'channel'
@@ -44,41 +46,57 @@ class Ban(base):
 Ban.__table__.create(checkfirst=True)
     
 def channel_data(chat_id,channel_id,channel_name,subscribers,admin_username,description):
-    LOGGER.info(f"New Channel {channel_id} [{channel_name}] by {admin_username}")
-    session.add(Channel(chat_id=chat_id,channel_id=int(channel_id),channel_name=channel_name,subscribers=subscribers,admin_username=admin_username,description=description))
-    session.commit()
+    with LOCK:
+        LOGGER.info(f"New Channel {channel_id} [{channel_name}] by {admin_username}")
+        session.add(Channel(chat_id=chat_id,channel_id=int(channel_id),channel_name=channel_name,subscribers=subscribers,admin_username=admin_username,description=description))
+        session.commit()
 
 def is_channel_exist(channel_id):
-    LOGGER.info(f"Checking Existance of {channel_id}")
-    data=session.query(Channel).filter(Channel.channel_id==int(channel_id))
-    return session.query(data.exists()).scalar()
-
+    try:
+        LOGGER.info(f"Checking Existance of {channel_id}")
+        data=session.query(Channel).filter(Channel.channel_id==int(channel_id))
+        return session.query(data.exists()).scalar()
+    finally:
+        session.close()
+        
 def is_channel_ban(channel_id):
-    LOGGER.info(f"Checking ban status {channel_id}")
-    ban=session.query(Ban).filter(Ban.channel_id==str(channel_id))
-    return session.query(ban.exists()).scalar()
-
+    try:
+        LOGGER.info(f"Checking ban status {channel_id}")
+        ban=session.query(Ban).filter(Ban.channel_id==str(channel_id))
+        return session.query(ban.exists()).scalar()
+    finally:
+        session.close()
 def is_user_not_added_channel(chat_id):
-    data=session.query(Channel).filter(Channel.chat_id==chat_id)
-    print(session.query(data.exists()).scalar())
-    return session.query(data.exists()).scalar()
-
+    try:
+        data=session.query(Channel).filter(Channel.chat_id==chat_id)
+        print(session.query(data.exists()).scalar())
+        return session.query(data.exists()).scalar()
+    finally:
+        session.close()
 
 def delete_channel(channel_id):
-    LOGGER.info(f'channel removed {channel_id}')
-    session.query(Channel).filter(Channel.channel_id==int(channel_id)).delete()
-    session.commit()
+    with LOCK:
+        LOGGER.info(f'channel removed {channel_id}')
+        session.query(Channel).filter(Channel.channel_id==int(channel_id)).delete()
+        session.commit()
     
 def get_all_channel(chat_id):
-    LOGGER.info(f"Getting Channel registed by {chat_id}")
-    return session.query(Channel).filter(Channel.chat_id==chat_id).all()
-
+    try:
+        LOGGER.info(f"Getting Channel registed by {chat_id}")
+        return session.query(Channel).filter(Channel.chat_id==chat_id).all()
+    finally:
+        session.close()
+        
 def get_channel():
-    return [channel.channel_id for channel in session.query(Channel).all()]
-
+    try:
+        return [channel.channel_id for channel in session.query(Channel).all()]
+    finally:
+        session.close()
+        
 def update_subs(channel_id,subs):
-    session.query(Channel).filter(Channel.channel_id==channel_id).update({Channel.subscribers:subs})
-    session.commit()
+    with LOCK:
+        session.query(Channel).filter(Channel.channel_id==channel_id).update({Channel.subscribers:subs})
+        session.commit()
 
 def total_channel():
     return session.query(Channel).count()
@@ -87,18 +105,25 @@ def total_banned_channel():
     return session.query(Ban).count()
 
 def ban_channel(channel_id):
-    session.add(Ban(channel_id=int(channel_id)))
-    session.commit()
-    LOGGER.info(f'channel {channel_id} banned ')
+    with LOCK:
+        session.add(Ban(channel_id=int(channel_id)))
+        session.commit()
+        LOGGER.info(f'channel {channel_id} banned ')
     
 def unban_channel(channel_id):
-    session.query(Ban).filter(Ban.channel_id==int(channel_id)).delete()
-    session.commit()
+    with LOCK:
+        session.query(Ban).filter(Ban.channel_id==int(channel_id)).delete()
+        session.commit()
 
 def is_channel_banned(channel_id):
-    ban=session.query(Ban).filter(Ban.channel_id==channel_id)
-    return session.query(ban.exists()).scalar()
-
+    try:
+        ban=session.query(Ban).filter(Ban.channel_id==channel_id)
+        return session.query(ban.exists()).scalar()
+    finally:
+        session.close()
+        
 def get_channel_by_id(channel_id):
-    return session.query(Channel).filter(Channel.channel_id==int(channel_id)).first()
-    
+    try :
+        return session.query(Channel).filter(Channel.channel_id==int(channel_id)).first()
+    finally:
+        session.close()

@@ -4,6 +4,9 @@ from sqlalchemy import Column, Integer, String,Date,Text,DateTime
 from bot.database import base,session
 import datetime
 from bot import LOGGER
+import threading
+
+LOCK=threading.RLock()
 
 class User(base):
     __tablename__ = 'users'
@@ -55,28 +58,35 @@ def add_user(message):
         username = 'None'
     if chat_id == None:
         chat_id = 'None'
-    
-    if not len(user):
-        session.add(User(chat_id=message.chat.id,username=username,first_name=first_name,last_name=last_name))
-        session.commit()
-        LOGGER.info('New User : chat_id {} username {}'.format(chat_id,username))
-    if len(user):
-        session.query(User).filter(User.chat_id == message.from_user.id).update({User.first_name:first_name,User.last_name:last_name,User.username:username},synchronize_session='fetch')
-        session.commit()
+    with LOCK:
+        if not len(user):
+            session.add(User(chat_id=message.chat.id,username=username,first_name=first_name,last_name=last_name))
+            session.commit()
+            LOGGER.info('New User : chat_id {} username {}'.format(chat_id,username))
+        if len(user):
+            session.query(User).filter(User.chat_id == message.from_user.id).update({User.first_name:first_name,User.last_name:last_name,User.username:username},synchronize_session='fetch')
+            session.commit()
         
 def delete_user(chat_id):
-    session.query(User).filter(User.chat_id==chat_id).delete()
-    session.commit()   
+    with LOCK:
+        session.query(User).filter(User.chat_id==chat_id).delete()
+        session.commit()   
 
 def get_admin():
-    return [admin.chat_id for admin in session.query(Admin).all()]
-
+    try:
+        return [admin.chat_id for admin in session.query(Admin).all()]
+    finally :
+        session.close()
 def get_all():
-    return [user.chat_id for user in session.query(User).all()]
-
+    try:
+        return [user.chat_id for user in session.query(User).all()]
+    finally :
+        session.close()
+        
 def add_admin(chat_id):
-    session.add(Admin(chat_id=int(chat_id)))
-    session.commit()
+    with LOCK:
+        session.add(Admin(chat_id=int(chat_id)))
+        session.commit()
 
 def total_users():
     return session.query(User).count()
