@@ -73,4 +73,32 @@ def get_all_channel(chat_id):
     LOGGER.info(f"Getting Channel registed by {chat_id}")
     return session.query(Channel).filter(Channel.chat_id==chat_id).all()
 
+def get_channel():
+    return [channel.channel_id for channel in session.query(Channel).all()]
 
+def update_subs(channel_id,subs):
+    session.query(Channel).filter(Channel.channel_id==channel_id).update({Channel.subscribers:subs})
+    session.commit()
+
+def total_channel():
+    return session.query(Channel).count()
+
+def total_banned_channel():
+    return session.query(Ban).count()
+
+def ban_channel(channel_id):
+    session.add(Ban(channel_id=int(channel_id)))
+    session.commit()
+    LOGGER.info(f'channel {channel_id} banned ')
+    
+def unban_channel(channel_id):
+    session.query(Ban).filter(Ban.channel_id==int(channel_id)).delete()
+    session.commit()
+
+def is_channel_banned(channel_id):
+    ban=session.query(Ban).filter(Ban.channel_id==channel_id)
+    return session.query(ban.exists()).scalar()
+
+def get_channel_by_id(channel_id):
+    return session.query(Channel).filter(Channel.channel_id==int(channel_id)).first()
+    

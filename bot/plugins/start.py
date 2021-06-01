@@ -11,7 +11,7 @@ async def start_handler(bot : Client, message: Message):
     await bot.send_message(message.chat.id,"Hello **{}**".format(message.chat.first_name),parse_mode='md',reply_markup=start_markup())
     add_user(message)
     
-@Bot.on_message(filters.command('admin_start') & filters.private & (filters.user(get_admin()) | filters.user(SUDO_USERS)))
+@Bot.on_message(filters.command('admin_start') & filters.private & filters.user(get_admin()))
 async def admin_start_handler(bot : Client, message : Message):
     LOGGER.info(f"Admin logged in {message.chat.id}")
     await bot.send_message(message.chat.id,"✅ You Logged In as admin",reply_markup=admin_markup())

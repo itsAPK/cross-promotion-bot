@@ -31,24 +31,24 @@ async def add_channel(bot : Client ,message : Message):
             if await is_bot_admin(bot,channel.forward_from_chat.id) is True:
                 subscribers=await bot.get_chat_members_count(channel_id)
                 #TODO :  SUBSCRIBERS LIMIT
-                description=await bot.ask(message.from_user.id,"<b>✅ Send description(max 5 words and 2 emojis)</b>",parse_mode='md')
+                description=await bot.ask(message.from_user.id,"<b>✅ Send description(max 5 words and 2 emojis)</b>")
                 admin_username=message.from_user.username
                 channel_data(chat_id,channel_id,channel_name,subscribers,admin_username,description.text)
                 details=f'✅ <b>Channel Submitted Sucessfully</b>\n\nChannel ID : {channel_id}\nChannel name :{channel_name}\nSubscribers : {subscribers}\nDescription : {description.text}'         
-                await bot.send_message(message.message.chat.id,details,parse_mode='md')
+                await bot.send_message(message.message.chat.id,details,reply_markup=empty_markup())
                 send_group_message=f'✅ <b>New Channel Submited!<b>\n\nChannel ID : {channel_id}\nChannel name :{channel_name}\nSubscribers : {subscribers}\nDescription : {description.text}\nSubmitted By : @{admin_username}'
                 await bot.send_message(SUPPORT_GROUP,send_group_message)
                 LOGGER.info(f"Channel Added {channel_name}")
             else:
-                await bot.send_message(channel.chat.id,"<b>❌ Bot is not admin</b>",parse_mode='md')
+                await bot.send_message(channel.chat.id,"<b> ❌ Bot is not admin</b>",reply_markup=empty_markup())
         
         except (ChannelPrivate,ChatAdminRequired)  as e:
                     LOGGER.error(e)
                     await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC',parse_mode='html')
-                    await bot.send_message(message.message.chat.id,"<b>❌ Bot is not admin</b>",parse_mode='md')
+                    await bot.send_message(message.message.chat.id,"<b>❌ Bot is not admin</b>",reply_markup=empty_markup())
                 
 
         except Exception as e:
                 LOGGER.error(e)
                 await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC',parse_mode='html')
-                await bot.send_message(message.message.chat.id,"<b>❌ Invalid action</b>",parse_mode='md')
+                await bot.send_message(message.message.chat.id,"<b>❌ Invalid action</b>",reply_markup=empty_markup())

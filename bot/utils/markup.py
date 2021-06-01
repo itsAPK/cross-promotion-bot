@@ -45,8 +45,8 @@ def admin_markup():
     preview_list=InlineKeyboardButton('⏮ Preview List',callback_data='preview')
     send_promo=InlineKeyboardButton('✔️ Send Promo',callback_data='send_promo')
     dlt_promo=InlineKeyboardButton('✖️ Delete Promo',callback_data='dlt_promo')
-    task=InlineKeyboardButton('⏳ Schedule Promo',callback_data='schedule_task')
-    add_admin=InlineKeyboardButton('🛠 Add Admin',callback_data='add_admin')
+    task=InlineKeyboardButton('⚙️ Settings',callback_data='settings')
+    add_admin=InlineKeyboardButton('🛠 Add Admin',callback_data='add_admin') #TODO : Settings markup
     sendpaidpromo=InlineKeyboardButton('💲Send Paid Promo',callback_data='mypapr')
     deletepaidpromo=InlineKeyboardButton('💲Delete Paid Promo',callback_data='deltpr')
     markup=InlineKeyboardMarkup([[add_admin],[mail,announce],[ban,unban],[update_subs],[show_channel,manage_list],[manage,create_post],[preview_list,task],[send_promo,dlt_promo],[sendpaidpromo,deletepaidpromo]])
