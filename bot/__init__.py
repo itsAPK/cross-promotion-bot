@@ -14,20 +14,21 @@ import asyncio
 
 
 LOG_DATETIME = datetime.now().strftime("%d_%m_%Y-%H_%M_%S")
-LOGDIR ="{}/logs".format(__name__)
+#LOGDIR ="{}/logs".format(__name__)
 
-if not path.isdir(LOGDIR):
-    mkdir(LOGDIR)
+#if not path.isdir(LOGDIR):
+    #mkdir(LOGDIR)
 
-LOGFILE ="{}/{}_{}.log".format(LOGDIR,__name__,LOG_DATETIME)
+#LOGFILE ="{}/{}_{}.log".format(LOGDIR,__name__,LOG_DATETIME)
 
-file_handler = FileHandler(filename=LOGFILE)
+#file_handler = FileHandler(filename=LOGFILE)
+
 stdout_handler = StreamHandler(stdout)
 
 basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     level=INFO,
-    handlers=[file_handler, stdout_handler],
+    handlers=[stdout_handler],
 )
 
 getLogger("pyrogram").setLevel(WARNING)
