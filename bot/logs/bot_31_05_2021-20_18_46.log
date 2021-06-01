@@ -1,0 +1,18 @@
+2021-05-31 20:18:53,461 - bot - INFO - Starting bot...
+2021-05-31 20:18:53,626 - bot - INFO - Pyrogram v1.2.9 (Layer - 126) started on terabyt3promobot [1274744123]
+2021-05-31 20:18:53,626 - bot - INFO - Python Version: 3.8.0
+
+2021-05-31 20:18:53,626 - bot - INFO - Bot Started Successfully!
+
+2021-05-31 20:19:00,793 - bot - INFO - New User : chat_id 431108047 username iamAPK
+2021-05-31 20:19:20,153 - bot - INFO - Checking ban status -1001256022312
+2021-05-31 20:19:20,174 - bot - INFO - Checking Existance of -1001256022312
+2021-05-31 20:19:32,728 - bot - INFO - New Channel -1001256022312 [TERABYT3 DEALS] by iamAPK
+2021-05-31 20:19:32,980 - pyrogram.parser.html - WARNING - Unclosed tags: <b> (x2)
+2021-05-31 20:19:33,430 - bot - INFO - Channel Added TERABYT3 DEALS
+2021-05-31 20:20:18,372 - root - INFO - Stop signal received (2). Exiting...
+2021-05-31 20:20:18,803 - bot - INFO - Uploading logs before stopping...!
+
+2021-05-31 20:20:21,041 - bot - INFO - Bot Stopped [Runtime: 00h 01m 32ss]
+
+        

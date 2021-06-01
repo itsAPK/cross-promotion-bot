@@ -1,0 +1,23 @@
+2021-06-01 12:40:02,011 - bot - INFO - Starting bot...
+2021-06-01 12:40:02,233 - bot - INFO - Pyrogram v1.2.9 (Layer - 126) started on terabyt3promobot [1274744123]
+2021-06-01 12:40:02,233 - bot - INFO - Python Version: 3.8.0
+
+2021-06-01 12:40:02,233 - bot - INFO - Bot Started Successfully!
+
+2021-06-01 12:40:34,949 - bot - ERROR - 'NoneType' object has no attribute 'id'
+2021-06-01 12:40:44,829 - bot - ERROR - 'NoneType' object has no attribute 'id'
+2021-06-01 12:40:58,365 - root - INFO - Stop signal received (2). Exiting...
+2021-06-01 12:40:58,713 - bot - INFO - Uploading logs before stopping...!
+
+2021-06-01 12:41:08,848 - root - INFO - Stop signal received (2). Exiting...
+2021-06-01 12:41:08,849 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: timed out
+2021-06-01 12:41:09,030 - asyncio - ERROR - An open stream object is being garbage collected; call "stream.close()" explicitly.
+2021-06-01 12:41:19,031 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: timed out
+2021-06-01 12:41:30,034 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: timed out
+2021-06-01 12:41:40,159 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: timed out
+2021-06-01 12:41:50,162 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: timed out
+2021-06-01 12:41:51,166 - pyrogram.connection.connection - WARNING - Connection failed! Trying again...
+2021-06-01 12:42:01,172 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: timed out
+2021-06-01 12:42:03,612 - bot - INFO - Bot Stopped [Runtime: 00h 01m 03ss]
+
+        

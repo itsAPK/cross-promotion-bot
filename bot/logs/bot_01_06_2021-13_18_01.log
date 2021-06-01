@@ -1,0 +1,23 @@
+2021-06-01 13:18:07,250 - bot - INFO - Starting bot...
+2021-06-01 13:18:07,435 - bot - INFO - Pyrogram v1.2.9 (Layer - 126) started on string_tester_bot [1393190801]
+2021-06-01 13:18:07,435 - bot - INFO - Python Version: 3.8.0
+
+2021-06-01 13:18:07,435 - bot - INFO - Bot Started Successfully!
+
+2021-06-01 13:18:22,475 - bot - INFO - Admin logged in 431108047
+2021-06-01 13:18:35,697 - bot - INFO - BOT STATISTICS : 
+ <b>Total users :</b> 2
+<b>Total Admins :</b> 2
+<b>Registerd channels :</b> 1
+<b>Banned channels :</b> 0
+2021-06-01 13:19:08,052 - root - INFO - Stop signal received (2). Exiting...
+2021-06-01 13:19:08,212 - bot - INFO - Uploading logs before stopping...!
+
+2021-06-01 13:19:18,242 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: timed out
+2021-06-01 13:19:18,260 - asyncio - ERROR - An open stream object is being garbage collected; call "stream.close()" explicitly.
+2021-06-01 13:19:28,263 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: timed out
+2021-06-01 13:19:38,265 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: timed out
+2021-06-01 13:19:49,259 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: timed out
+2021-06-01 13:19:59,273 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: timed out
+2021-06-01 13:19:59,289 - pyrogram.connection.connection - WARNING - Connection failed! Trying again...
+2021-06-01 13:20:09,302 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: timed out

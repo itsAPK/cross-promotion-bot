@@ -1,0 +1,14 @@
+2021-05-31 20:15:22,364 - bot - INFO - Starting bot...
+2021-05-31 20:15:22,958 - bot - INFO - Pyrogram v1.2.9 (Layer - 126) started on terabyt3promobot [1274744123]
+2021-05-31 20:15:22,959 - bot - INFO - Python Version: 3.8.0
+
+2021-05-31 20:15:22,959 - bot - INFO - Bot Started Successfully!
+
+2021-05-31 20:15:39,370 - bot - INFO - Checking ban status -1001256022312
+2021-05-31 20:15:39,374 - bot - INFO - Checking Existance of -1001256022312
+2021-05-31 20:15:57,599 - root - INFO - Stop signal received (2). Exiting...
+2021-05-31 20:15:58,527 - bot - INFO - Uploading logs before stopping...!
+
+2021-05-31 20:16:00,463 - bot - INFO - Bot Stopped [Runtime: 00h 00m 41ss]
+
+        

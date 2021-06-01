@@ -6,7 +6,7 @@ from bot.database.models.user_db import get_all,get_admin
 from bot.utils.markup import start_markup,admin_markup,back_markup
 from bot import LOGGER,LOG_CHANNEL,SUDO_USERS
 
-@Bot.on_callback_query(filters.regex('^mail$') & (filters.user(get_admin() | filters.user(SUDO_USERS))))
+@Bot.on_callback_query(filters.regex('^mail$') & (filters.user(get_admin()) | filters.user(SUDO_USERS)))
 async def mail_handler(bot: Client,message: Message):
     mail_message=await bot.ask(message.from_user.id,'Enter the Message',reply_markup=back_markup())
     if mail_message.text=='🚫 Cancel':

@@ -69,4 +69,17 @@ def delete_user(chat_id):
     session.commit()   
 
 def get_admin():
-    return session.query(Admin).all()
+    return [admin.chat_id for admin in session.query(Admin).all()]
+
+def get_all():
+    return [user.chat_id for user in session.query(User).all()]
+
+def add_admin(chat_id):
+    session.add(Admin(chat_id=int(chat_id)))
+    session.commit()
+
+def total_users():
+    return session.query(User).count()
+
+def total_admin():
+    return session.query(Admin).count()

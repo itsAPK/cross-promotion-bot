@@ -1,0 +1,18 @@
+2021-06-01 13:00:39,590 - bot - INFO - Starting bot...
+2021-06-01 13:00:40,459 - bot - INFO - Pyrogram v1.2.9 (Layer - 126) started on string_tester_bot [1393190801]
+2021-06-01 13:00:40,459 - bot - INFO - Python Version: 3.8.0
+
+2021-06-01 13:00:40,459 - bot - INFO - Bot Started Successfully!
+
+2021-06-01 13:00:47,266 - bot - ERROR - int() argument must be a string, a bytes-like object or a number, not 'Message'
+2021-06-01 13:01:01,762 - root - INFO - Stop signal received (2). Exiting...
+2021-06-01 13:01:01,858 - bot - INFO - Uploading logs before stopping...!
+
+2021-06-01 13:01:11,887 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: timed out
+2021-06-01 13:01:11,905 - asyncio - ERROR - An open stream object is being garbage collected; call "stream.close()" explicitly.
+2021-06-01 13:01:21,918 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: timed out
+2021-06-01 13:01:31,921 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: timed out
+2021-06-01 13:01:41,924 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: timed out
+2021-06-01 13:01:44,328 - bot - INFO - Bot Stopped [Runtime: 00h 00m 27ss]
+
+        

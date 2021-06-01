@@ -1,0 +1,23 @@
+2021-05-31 20:13:03,305 - bot - INFO - Starting bot...
+2021-05-31 20:13:03,574 - bot - INFO - Pyrogram v1.2.9 (Layer - 126) started on terabyt3promobot [1274744123]
+2021-05-31 20:13:03,574 - bot - INFO - Python Version: 3.8.0
+
+2021-05-31 20:13:03,574 - bot - INFO - Bot Started Successfully!
+
+2021-05-31 20:13:17,040 - bot - INFO - Checking ban status -1001256022312
+2021-05-31 20:13:17,064 - bot - ERROR - (psycopg2.errors.UndefinedFunction) operator does not exist: character varying = bigint
+LINE 3: WHERE ban_channel.channel_id =  -1001256022312) AS anon_1
+                                     ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+[SQL: SELECT EXISTS (SELECT 1 
+FROM ban_channel 
+WHERE ban_channel.channel_id = %(channel_id_1)s) AS anon_1]
+[parameters: {'channel_id_1': -1001256022312}]
+(Background on this error at: http://sqlalche.me/e/14/f405)
+2021-05-31 20:13:48,227 - root - INFO - Stop signal received (2). Exiting...
+2021-05-31 20:13:49,177 - bot - INFO - Uploading logs before stopping...!
+
+2021-05-31 20:13:51,104 - bot - INFO - Bot Stopped [Runtime: 00h 01m 02ss]
+
+        

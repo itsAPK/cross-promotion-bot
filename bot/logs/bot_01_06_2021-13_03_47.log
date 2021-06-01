@@ -1,0 +1,37 @@
+2021-06-01 13:03:52,597 - bot - INFO - Starting bot...
+2021-06-01 13:03:52,764 - bot - INFO - Pyrogram v1.2.9 (Layer - 126) started on string_tester_bot [1393190801]
+2021-06-01 13:03:52,765 - bot - INFO - Python Version: 3.8.0
+
+2021-06-01 13:03:52,765 - bot - INFO - Bot Started Successfully!
+
+2021-06-01 13:04:02,086 - bot - INFO - Admin logged in 601023017
+2021-06-01 13:04:07,273 - bot - INFO - Admin logged in 601023017
+2021-06-01 13:04:23,956 - bot - INFO - Mailing Started
+2021-06-01 13:04:24,170 - bot - INFO - Mail sending to 431108047
+2021-06-01 13:04:24,470 - bot - INFO - Mail sending to 601023017
+2021-06-01 13:04:24,752 - bot - INFO - Mailing finished!
+2021-06-01 13:04:46,495 - bot - INFO - BOT STATISTICS : 
+ <b>Total users :</b> 2
+
+    <b>Total Admins :</b> 2
+    <b>Registerd channels :</b> 1
+
+    <b>Banned channels :</b> 0
+2021-06-01 13:05:50,476 - bot - INFO - updating members started
+2021-06-01 13:05:50,476 - pyrogram.dispatcher - ERROR - get_channel() missing 1 required positional argument: 'channel_id'
+Traceback (most recent call last):
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\pyrogram\dispatcher.py", line 217, in handler_worker
+    await handler.callback(self.client, *args)
+  File "G:\BOT\crosspromobot\bin\bot\plugins\manage_channel.py", line 64, in update_subs_handler
+    for channel in get_channel():
+TypeError: get_channel() missing 1 required positional argument: 'channel_id'
+2021-06-01 13:07:13,834 - root - INFO - Stop signal received (2). Exiting...
+2021-06-01 13:07:14,715 - bot - INFO - Uploading logs before stopping...!
+
+2021-06-01 13:07:24,738 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: timed out
+2021-06-01 13:07:24,741 - asyncio - ERROR - An open stream object is being garbage collected; call "stream.close()" explicitly.
+2021-06-01 13:07:34,743 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: timed out
+2021-06-01 13:07:45,759 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: timed out
+2021-06-01 13:07:48,469 - bot - INFO - Bot Stopped [Runtime: 00h 03m 27ss]
+
+        

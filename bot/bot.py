@@ -1,3 +1,5 @@
+#-*-coding : utf-8 -*-
+
 from platform import python_version
 from time import gmtime, strftime, time
 from pyrogram import Client, __version__
@@ -29,6 +31,7 @@ class Bot(Client):
             api_hash=API_HASH,
             bot_token=BOT_TOKEN,
             workers=WORKERS,
+            parse_mode='html'
         )
         
         
@@ -63,5 +66,4 @@ class Bot(Client):
             f"""Bot Stopped [Runtime: {runtime}s]\n
         """,
         )   
-        os.remove(LOGFILE)
     

@@ -1,0 +1,31 @@
+2021-05-31 16:35:29,633 - sqlalchemy.engine.Engine - INFO - select version()
+2021-05-31 16:35:29,634 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2021-05-31 16:35:29,638 - sqlalchemy.engine.Engine - INFO - select current_schema()
+2021-05-31 16:35:29,640 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2021-05-31 16:35:29,642 - sqlalchemy.engine.Engine - INFO - show standard_conforming_strings
+2021-05-31 16:35:29,643 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2021-05-31 16:35:29,645 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2021-05-31 16:35:29,647 - sqlalchemy.engine.Engine - INFO - COMMIT
+2021-05-31 16:35:36,534 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2021-05-31 16:35:36,535 - sqlalchemy.engine.Engine - INFO - select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
+2021-05-31 16:35:36,537 - sqlalchemy.engine.Engine - INFO - [generated in 0.00151s] {'name': 'users'}
+2021-05-31 16:35:36,541 - sqlalchemy.engine.Engine - INFO - COMMIT
+2021-05-31 16:35:36,743 - bot - INFO - Starting bot...
+2021-05-31 16:35:36,924 - bot - INFO - Pyrogram v1.2.9 (Layer - 126) started on terabyt3promobot [1274744123]
+2021-05-31 16:35:36,925 - bot - INFO - Python Version: 3.8.0
+
+2021-05-31 16:35:36,926 - bot - INFO - Bot Started Successfully!
+
+2021-05-31 16:36:03,205 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2021-05-31 16:36:03,211 - sqlalchemy.engine.Engine - INFO - SELECT users.id AS users_id, users.chat_id AS users_chat_id, users.first_name AS users_first_name, users.last_name AS users_last_name, users.username AS users_username, users.date AS users_date 
+FROM users 
+WHERE users.chat_id = %(chat_id_1)s
+2021-05-31 16:36:03,213 - sqlalchemy.engine.Engine - INFO - [generated in 0.00206s] {'chat_id_1': 431108047}
+2021-05-31 16:36:03,339 - sqlalchemy.engine.Engine - INFO - UPDATE users SET first_name=%(first_name)s, last_name=%(last_name)s, username=%(username)s WHERE users.chat_id = %(chat_id_1)s RETURNING users.id
+2021-05-31 16:36:03,541 - sqlalchemy.engine.Engine - INFO - COMMIT
+2021-05-31 16:36:26,159 - root - INFO - Stop signal received (2). Exiting...
+2021-05-31 16:36:26,538 - bot - INFO - Uploading logs before stopping...!
+
+2021-05-31 16:36:28,274 - bot - INFO - Bot Stopped [Runtime: 00h 00m 57ss]
+
+        

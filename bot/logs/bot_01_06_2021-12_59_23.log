@@ -1,0 +1,13 @@
+2021-06-01 12:59:28,668 - bot - INFO - Starting bot...
+2021-06-01 12:59:28,834 - bot - INFO - Pyrogram v1.2.9 (Layer - 126) started on string_tester_bot [1393190801]
+2021-06-01 12:59:28,834 - bot - INFO - Python Version: 3.8.0
+
+2021-06-01 12:59:28,834 - bot - INFO - Bot Started Successfully!
+
+2021-06-01 12:59:54,903 - bot - ERROR - int() argument must be a string, a bytes-like object or a number, not 'Message'
+2021-06-01 13:00:31,014 - root - INFO - Stop signal received (2). Exiting...
+2021-06-01 13:00:31,300 - bot - INFO - Uploading logs before stopping...!
+
+2021-06-01 13:00:32,853 - bot - INFO - Bot Stopped [Runtime: 00h 01m 08ss]
+
+        

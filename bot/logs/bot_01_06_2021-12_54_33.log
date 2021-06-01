@@ -1,0 +1,13 @@
+2021-06-01 12:54:47,168 - pyrogram.connection.connection - WARNING - Unable to connect due to network issues: timed out
+2021-06-01 12:54:49,508 - bot - INFO - Starting bot...
+2021-06-01 12:54:49,722 - bot - INFO - Pyrogram v1.2.9 (Layer - 126) started on string_tester_bot [1393190801]
+2021-06-01 12:54:49,722 - bot - INFO - Python Version: 3.8.0
+
+2021-06-01 12:54:49,722 - bot - INFO - Bot Started Successfully!
+
+2021-06-01 12:55:18,769 - root - INFO - Stop signal received (2). Exiting...
+2021-06-01 12:55:19,452 - bot - INFO - Uploading logs before stopping...!
+
+2021-06-01 12:55:21,250 - bot - INFO - Bot Stopped [Runtime: 00h 00m 46ss]
+
+        

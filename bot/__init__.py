@@ -1,3 +1,5 @@
+#-*-coding : utf-8 -*-
+
 from datetime import datetime
 from importlib import import_module as imp_mod
 from logging import INFO, WARNING, FileHandler, StreamHandler, basicConfig, getLogger,DEBUG
@@ -29,7 +31,6 @@ basicConfig(
 )
 
 getLogger("pyrogram").setLevel(WARNING)
-getLogger('sqlalchemy.engine').setLevel(INFO)
 
 
 LOGGER = getLogger(__name__)
@@ -54,7 +55,8 @@ SUDO_USERS=Config.SUDO_USERS
 DATABASE_URI=Config.DATABASE_URI
 WORKERS = Config.WORKERS
 BOT_TOKEN=Config.BOT_TOKEN
-PREFIX_HANDLER = Config.PREFIX_HANDLER
+PREFIX_HANDLER = Config.PREFIX_HANDLER 
+PROMOTION_NAME= Config.PROMOTION_NAME
 VERSION = Config.VERSION
 UPTIME = time()
 BOT_USERNAME = ""

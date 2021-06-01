@@ -1,0 +1,109 @@
+2021-05-31 20:16:08,570 - bot - INFO - Starting bot...
+2021-05-31 20:16:09,154 - bot - INFO - Pyrogram v1.2.9 (Layer - 126) started on terabyt3promobot [1274744123]
+2021-05-31 20:16:09,154 - bot - INFO - Python Version: 3.8.0
+
+2021-05-31 20:16:09,154 - bot - INFO - Bot Started Successfully!
+
+2021-05-31 20:16:17,140 - bot - INFO - Checking ban status -1001256022312
+2021-05-31 20:16:17,162 - bot - INFO - Checking Existance of -1001256022312
+2021-05-31 20:16:23,667 - bot - INFO - New Channel -1001256022312 [TERABYT3 DEALS] by iamAPK
+2021-05-31 20:16:23,871 - bot - ERROR - (psycopg2.errors.NumericValueOutOfRange) integer out of range
+
+[SQL: INSERT INTO channel (chat_id, channel_id, subscribers, channel_name, admin_username, description) VALUES (%(chat_id)s, %(channel_id)s, %(subscribers)s, %(channel_name)s, %(admin_username)s, %(description)s) RETURNING channel.id]
+[parameters: {'chat_id': 431108047, 'channel_id': -1001256022312, 'subscribers': 689, 'channel_name': 'TERABYT3 DEALS', 'admin_username': 'iamAPK', 'description': "He'll"}]
+(Background on this error at: http://sqlalche.me/e/14/9h9h)
+2021-05-31 20:16:24,961 - pyrogram.dispatcher - ERROR - [400 MESSAGE_TOO_LONG]: The message text is over 4096 characters (caused by "messages.SendMessage")
+Traceback (most recent call last):
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
+    self.dialect.do_execute(
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.NumericValueOutOfRange: integer out of range
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "G:\BOT\crosspromobot\bin\bot\plugins\add_channel.py", line 35, in add_channel
+    channel_data(chat_id,channel_id,channel_name,subscribers,admin_username,description.text)
+  File "G:\BOT\crosspromobot\bin\bot\database\models\channel_db.py", line 49, in channel_data
+    session.commit()
+  File "<string>", line 2, in commit
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 829, in commit
+    self._prepare_impl()
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 3286, in flush
+    self._flush(objects)
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 3426, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 3386, in _flush
+    flush_context.execute()
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 456, in execute
+    rec.execute(self)
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 630, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 242, in save_obj
+    _emit_insert_statements(
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1219, in _emit_insert_statements
+    result = connection._execute_20(
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\sqlalchemy\sql\elements.py", line 324, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1451, in _execute_clauseelement
+    ret = self._execute_context(
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1813, in _execute_context
+    self._handle_dbapi_exception(
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1994, in _handle_dbapi_exception
+    util.raise_(
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
+    self.dialect.do_execute(
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.DataError: (psycopg2.errors.NumericValueOutOfRange) integer out of range
+
+[SQL: INSERT INTO channel (chat_id, channel_id, subscribers, channel_name, admin_username, description) VALUES (%(chat_id)s, %(channel_id)s, %(subscribers)s, %(channel_name)s, %(admin_username)s, %(description)s) RETURNING channel.id]
+[parameters: {'chat_id': 431108047, 'channel_id': -1001256022312, 'subscribers': 689, 'channel_name': 'TERABYT3 DEALS', 'admin_username': 'iamAPK', 'description': "He'll"}]
+(Background on this error at: http://sqlalche.me/e/14/9h9h)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\pyrogram\dispatcher.py", line 217, in handler_worker
+    await handler.callback(self.client, *args)
+  File "G:\BOT\crosspromobot\bin\bot\plugins\add_channel.py", line 52, in add_channel
+    await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC',parse_mode='html')
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\pyrogram\methods\messages\send_message.py", line 125, in send_message
+    r = await self.send(
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\pyrogram\methods\advanced\send.py", line 77, in send
+    r = await self.session.send(
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\pyrogram\session\session.py", line 425, in send
+    return await self._send(data, timeout=timeout)
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\pyrogram\session\session.py", line 395, in _send
+    RPCError.raise_it(result, type(data))
+  File "G:\BOT\crosspromobot\.venv\lib\site-packages\pyrogram\errors\rpc_error.py", line 78, in raise_it
+    raise getattr(
+pyrogram.errors.exceptions.bad_request_400.MessageTooLong: [400 MESSAGE_TOO_LONG]: The message text is over 4096 characters (caused by "messages.SendMessage")
+2021-05-31 20:17:43,866 - root - INFO - Stop signal received (2). Exiting...
+2021-05-31 20:17:44,159 - root - INFO - Stop signal received (2). Exiting...
+2021-05-31 20:17:44,203 - root - INFO - Stop signal received (2). Exiting...
+2021-05-31 20:17:44,231 - root - INFO - Stop signal received (2). Exiting...
+2021-05-31 20:17:44,269 - root - INFO - Stop signal received (2). Exiting...
+2021-05-31 20:17:44,297 - root - INFO - Stop signal received (2). Exiting...
+2021-05-31 20:17:44,333 - root - INFO - Stop signal received (2). Exiting...
+2021-05-31 20:17:44,365 - root - INFO - Stop signal received (2). Exiting...
+2021-05-31 20:17:44,401 - root - INFO - Stop signal received (2). Exiting...
+2021-05-31 20:17:44,597 - bot - INFO - Uploading logs before stopping...!
+
+2021-05-31 20:17:46,677 - bot - INFO - Bot Stopped [Runtime: 00h 01m 42ss]
+
+        
