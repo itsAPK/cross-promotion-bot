@@ -31,8 +31,8 @@ basicConfig(
     handlers=[stdout_handler],
 )
 
-getLogger("pyrogram").setLevel(WARNING)
-    
+getLogger("pyrogram").setLevel(INFO)
+getLogger('sqlalchemy.engine').setLevel(INFO)    
 
 LOGGER = getLogger(__name__)
 

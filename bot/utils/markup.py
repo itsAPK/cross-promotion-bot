@@ -42,12 +42,22 @@ def admin_markup():
     manage=InlineKeyboardButton('📊 Statistics',callback_data='stats')
     manage_list=InlineKeyboardButton('☑️ Manage List',callback_data='list')
     create_post=InlineKeyboardButton('📝 Create Post',callback_data='create_post')
-    preview_list=InlineKeyboardButton('⏮ Preview List',callback_data='preview')
+    preview_list=InlineKeyboardButton('⏮ Preview Promo',callback_data='preview')
     send_promo=InlineKeyboardButton('✔️ Send Promo',callback_data='send_promo')
     dlt_promo=InlineKeyboardButton('✖️ Delete Promo',callback_data='dlt_promo')
     task=InlineKeyboardButton('⚙️ Settings',callback_data='settings')
-    add_admin=InlineKeyboardButton('🛠 Add Admin',callback_data='add_admin') #TODO : Settings markup
+    add_admin=InlineKeyboardButton('🛠 Add Admin',callback_data='add_admin')
     sendpaidpromo=InlineKeyboardButton('💲Send Paid Promo',callback_data='mypapr')
     deletepaidpromo=InlineKeyboardButton('💲Delete Paid Promo',callback_data='deltpr')
     markup=InlineKeyboardMarkup([[add_admin],[mail,announce],[ban,unban],[update_subs],[show_channel,manage_list],[manage,create_post],[preview_list,task],[send_promo,dlt_promo],[sendpaidpromo,deletepaidpromo]])
     return markup
+
+
+def settings_markup():
+    return InlineKeyboardMarkup(
+        [
+            [InlineKeyboardButton('☑️ Set Subscribers Limit',callback_data='subs_limit')],
+            [InlineKeyboardButton('☑️ Set List Size',callback_data='list_size')],
+            [InlineKeyboardButton('🔙 Back',callback_data='back')]
+        ]
+    )

@@ -14,7 +14,6 @@ from bot import (
     APP_ID,
     LOG_CHANNEL,
     LOG_DATETIME,
-    LOGFILE,
     LOGGER,
     STRING_SESSION,
     WORKERS,
@@ -51,15 +50,12 @@ class Bot(Client):
         #LOGGER.info("Closing Database Connection")
         runtime = strftime("%Hh %Mm %Ss", gmtime(time() - UPTIME))
         LOGGER.info("Uploading logs before stopping...!\n")
-        await self.send_document(
+        await self.send_message(
             LOG_CHANNEL,
-            document=LOGFILE,
-            caption=(
-                "Bot Stopped!\n\n"
+                ("Bot Stopped!\n\n"
                 f"Uptime: {runtime}\n"
-                f"<code>{LOG_DATETIME}</code>"
+                f"<code>{LOG_DATETIME}</code>")
             ),
-        )
         
         await super().stop()
         LOGGER.info(
