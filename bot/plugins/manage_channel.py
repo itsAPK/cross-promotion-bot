@@ -65,9 +65,9 @@ async def update_subs_handler(bot:Client,message:Message):
     LOGGER.info("updating members started")
     for channel in get_channel():
         try: 
-            LOGGER.info(f"updating memebers {channel}")
-            subs=await bot.get_chat_members_count(channel)
-            update_subs(channel,subs)
+            LOGGER.info(f"updating memebers {channel.channel_name}")
+            subs=await bot.get_chat_members_count(channel.channel_id)
+            update_subs(channel.channel_id,subs)
         except (ChannelPrivate,ChatAdminRequired)  as e:
                     LOGGER.error(e)
                     await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC',parse_mode='html')

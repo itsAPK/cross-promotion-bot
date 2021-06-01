@@ -89,9 +89,12 @@ def get_all_channel(chat_id):
         
 def get_channel():
     try:
-        return [channel.channel_id for channel in session.query(Channel).all()]
+        return [channel for channel in session.query(Channel).all()]
     finally:
         session.close()
+        
+def get_all_channel(data):
+    pass
         
 def update_subs(channel_id,subs):
     with LOCK:
