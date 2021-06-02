@@ -32,33 +32,33 @@ async def ban_list_handler(bot:Client,message:Message):
 @Bot.on_callback_query(filters.regex('^user_list$')& (filters.user(get_admin()) | filters.user(SUDO_USERS)))
 async def user_list_handler(bot:Client,message:Message):        
     users=get_all_user_data()
-    with open("users.csv","w",encoding='UTF-8') as f:
-            writer = csv.writer(f,delimiter=",",lineterminator="\n")
-            writer.writerow(['id','name','username','joined date','no. of registed channels'])
+    with open("users.txt","w",encoding='UTF-8') as f:
             for user in users:
                 channel=get_user_channel_count(user.chat_id)
-                if user.username:
-                    username= '@'+user.username
-                else:
-                    continue
-                if user.first_name:
-                    first_name= user.first_name
-                else:
-                    first_name= ""
-                if user.last_name:
-                    last_name= user.last_name
-                else:
-                    last_name= ""
-                name= (first_name + ' ' + last_name).strip()
-                writer.writerow([user.chat_id,name,username,user.date,channel]) 
-    await bot.send_document(message.from_user.id,'users.csv',caption=f'Total Users : {total_users()}')
+                data=f"""
+🆔 ID : {user.chat_id}
+📛 Name : {user.first_name}
+👤 Username : {user.username}
+🗓 Joined at : {user.date}
+📢 No. of Registed Channels : {channel}
+➖➖➖➖➖➖➖➖➖➖➖➖➖➖
+                """
+                f.write(data)
+    await bot.send_document(message.from_user.id,'users.txt',caption=f'Total Users : {total_users()}',file_name='user_list.txt')
                 
 @Bot.on_callback_query(filters.regex('^channel_list$')& (filters.user(get_admin()) | filters.user(SUDO_USERS)))
 async def channel_list_handler(bot:Client,message:Message):   
     channels=get_channel()
-    with open("channels.csv","w",encoding='UTF-8') as f:
-            writer = csv.writer(f,delimiter=",",lineterminator="\n")
-            writer.writerow(['channel id','name','subscribers','description','admin id','admin username','channel link'])
+    with open("channels.txt","w",encoding='UTF-8') as f:
             for channel in channels:
-                writer.writerow([channel.channel_id,channel.channel_name,channel.subscribers,channel.description,channel.chat_id,channel.admin_username,channel.invite_link]) 
-    await bot.send_document(message.from_user.id,'channels.csv',caption=f'Total Users : {total_channel()}')
+                data=f"""
+🆔 ID : {channel.channel_id}
+📛 Name : {channel.channel_name}
+👤 Subscribers : {channel.subscribers}
+📄 Description : {channel.description}
+👨‍ Admin : {channel.admin_username} [{channel.chat_id}]
+🔗 Invite Link : {channel.invite_link}
+➖➖➖➖➖➖➖➖➖➖➖➖➖➖  
+"""
+                f.write(data)
+    await bot.send_document(message.from_user.id,'channels.txt',caption=f'Total channels : {total_channel()}',file_name='channel_list.txt')
