@@ -91,6 +91,7 @@ async def show_channel_handler(bot:Client,message:Message):
 📄 Description :{channel.description}
 ➖ Subscribers : {channel.subscribers}
 👨🏼‍💼 Admin : {channel.admin_username}
+🔗 Link : {channel.invite_link}
             """
             await bot.send_message(message.from_user.id,data)
     except Exception as e:

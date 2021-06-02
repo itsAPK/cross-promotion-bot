@@ -93,3 +93,6 @@ def total_users():
 
 def total_admin():
     return session.query(Admin).count()
+
+def get_all_user_data():
+    return session.query(User).all()

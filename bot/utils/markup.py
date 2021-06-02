@@ -61,3 +61,11 @@ def settings_markup():
             [InlineKeyboardButton('🔙 Back',callback_data='back')]
         ]
     )
+    
+def list_markup():
+    channel_list=InlineKeyboardButton('🕹 Channel List',callback_data='channel_list')
+    ban_list=InlineKeyboardButton('🚫 Ban List',callback_data='ban_list')
+    user_list=InlineKeyboardButton('👤 User List',callback_data='user_list')
+    back=InlineKeyboardButton('🔙 Back',callback_data='back') 
+    markup=InlineKeyboardMarkup([[channel_list,user_list],[ban_list],[back]])
+    return markup

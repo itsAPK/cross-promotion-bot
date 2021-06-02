@@ -33,7 +33,8 @@ async def add_channel(bot : Client ,message : Message):
                 #TODO :  SUBSCRIBERS LIMIT
                 description=await bot.ask(message.from_user.id,"<b>✅ Send description(max 5 words and 2 emojis)</b>")
                 admin_username=message.from_user.username
-                channel_data(chat_id,channel_id,channel_name,subscribers,admin_username,description.text)
+                invite_link=await bot.export_chat_invite_link(channel_id)
+                channel_data(chat_id,channel_id,channel_name,subscribers,admin_username,description.text,invite_link)
                 details=f'✅ <b>Channel Submitted Sucessfully</b>\n\nChannel ID : {channel_id}\nChannel name :{channel_name}\nSubscribers : {subscribers}\nDescription : {description.text}'         
                 await bot.send_message(message.message.chat.id,details,reply_markup=empty_markup())
                 send_group_message=f'✅ <b>New Channel Submited!<b>\n\nChannel ID : {channel_id}\nChannel name :{channel_name}\nSubscribers : {subscribers}\nDescription : {description.text}\nSubmitted By : @{admin_username}'

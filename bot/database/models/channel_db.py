@@ -16,14 +16,16 @@ class Channel(base):
     channel_name=Column(String)
     admin_username = Column(String)
     description=Column(String)
+    invite_link=Column(String)
 
-    def __init__(self,chat_id,channel_id,subscribers,channel_name,admin_username,description):
+    def __init__(self,chat_id,channel_id,subscribers,channel_name,admin_username,description,invite_link):
         self.chat_id=chat_id
         self.channel_id=channel_id
         self.channel_name=channel_name
         self.subscribers=subscribers
         self.admin_username=admin_username
         self.description=description
+        self.invite_link=invite_link
 
     def __repr__(self):
         return '{}'.format(self.description)
@@ -45,10 +47,18 @@ class Ban(base):
 
 Ban.__table__.create(checkfirst=True)
     
-def channel_data(chat_id,channel_id,channel_name,subscribers,admin_username,description):
+def channel_data(chat_id,channel_id,channel_name,subscribers,admin_username,description,invite_link):
     with LOCK:
         LOGGER.info(f"New Channel {channel_id} [{channel_name}] by {admin_username}")
-        session.add(Channel(chat_id=chat_id,channel_id=int(channel_id),channel_name=channel_name,subscribers=subscribers,admin_username=admin_username,description=description))
+        session.add(
+                        Channel(chat_id=chat_id,channel_id=int(channel_id),
+                            channel_name=channel_name,
+                            subscribers=subscribers,
+                            admin_username=admin_username,
+                            description=description,
+                            invite_link=invite_link
+                        )
+                    )
         session.commit()
 
 def is_channel_exist(channel_id):
@@ -93,8 +103,8 @@ def get_channel():
     finally:
         session.close()
         
-def get_all_channel(data):
-    pass
+
+    
         
 def update_subs(channel_id,subs):
     with LOCK:
@@ -130,3 +140,16 @@ def get_channel_by_id(channel_id):
         return session.query(Channel).filter(Channel.channel_id==int(channel_id)).first()
     finally:
         session.close()
+        
+def get_banned_channel_list():
+    try:
+        return [channel.channel_id for channel in session.query(Ban).all()]
+    finally:
+        session.close()
+        
+def get_user_channel_count(chat_id):
+    try:
+        return session.query(Channel).filter(Channel.chat_id==chat_id).count()
+    finally:
+        session.close()
+        
