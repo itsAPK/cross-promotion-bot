@@ -1,6 +1,7 @@
 from pyrogram.types import KeyboardButton,ReplyKeyboardMarkup,InlineKeyboardButton,InlineKeyboardMarkup,ReplyKeyboardRemove
 from bot import PROMOTION_NAME
 from bot.database.models.channel_db import get_all_channel
+from bot.database.models.post_db import get_buttons
 
 def start_markup():
     add_channel=InlineKeyboardButton('➕ Add Channel',callback_data='add_channel')
@@ -47,8 +48,8 @@ def admin_markup():
     dlt_promo=InlineKeyboardButton('✖️ Delete Promo',callback_data='dlt_promo')
     task=InlineKeyboardButton('⚙️ Settings',callback_data='settings')
     add_admin=InlineKeyboardButton('🛠 Add Admin',callback_data='add_admin')
-    sendpaidpromo=InlineKeyboardButton('💲Send Paid Promo',callback_data='mypapr')
-    deletepaidpromo=InlineKeyboardButton('💲Delete Paid Promo',callback_data='deltpr')
+    sendpaidpromo=InlineKeyboardButton('💲Send Paid Promo',callback_data='send_paid_promo')
+    deletepaidpromo=InlineKeyboardButton('💲Delete Paid Promo',callback_data='delete_paid_promo')
     markup=InlineKeyboardMarkup([[add_admin],[mail,announce],[ban,unban],[update_subs],[show_channel,manage_list],[manage,create_post],[preview_list,task],[send_promo,dlt_promo],[sendpaidpromo,deletepaidpromo]])
     return markup
 
@@ -82,3 +83,9 @@ def create_post_markup():
     back=InlineKeyboardButton('🔙 Back',callback_data='back')
     markup=InlineKeyboardMarkup([[top_sponser,bottom_sponser],[emoji,set_caption],[set_button,delete_button],[add_image],[back]])
     return markup
+
+def promo_button_markup():
+    buttons=get_buttons()
+    button=[[InlineKeyboardButton(x.name,url=x.url),] for x in buttons]
+    markup=InlineKeyboardMarkup(button)
+    return markup  

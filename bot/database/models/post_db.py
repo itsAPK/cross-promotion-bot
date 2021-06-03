@@ -109,3 +109,9 @@ def add_bottom_text(text):
                 session.commit()
     finally:
         session.close()
+        
+def get_buttons():
+    try:
+        return  session.query(Button).all()
+    finally:
+        session.close()
