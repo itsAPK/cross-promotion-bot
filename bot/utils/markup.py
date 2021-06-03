@@ -69,3 +69,16 @@ def list_markup():
     back=InlineKeyboardButton('🔙 Back',callback_data='back') 
     markup=InlineKeyboardMarkup([[channel_list,user_list],[ban_list],[back]])
     return markup
+
+
+def create_post_markup():
+    top_sponser=InlineKeyboardButton('⬆️ Set Top Text',callback_data='set_top_text')
+    bottom_sponser=InlineKeyboardButton('⬇️ Set Bottom Text',callback_data='set_bottom_text')
+    emoji=InlineKeyboardButton('☑️ Set Emoji',callback_data='set_emoji')
+    set_button=InlineKeyboardButton('🔘 Set Buttons',callback_data='set_button')
+    delete_button=InlineKeyboardButton('🗑 Delete Buttons',callback_data='delete_button')
+    set_caption=InlineKeyboardButton('🔖 Set Caption',callback_data='set_caption')
+    add_image=InlineKeyboardButton('🖼 Add Image',callback_data='add_image')
+    back=InlineKeyboardButton('🔙 Back',callback_data='back')
+    markup=InlineKeyboardMarkup([[top_sponser,bottom_sponser],[emoji,set_caption],[set_button,delete_button],[add_image],[back]])
+    return markup
