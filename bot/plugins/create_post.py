@@ -94,14 +94,16 @@ async def add_image_handler(bot:Client,message:Message):
     msg=await bot.ask(message.message.chat.id,"**✅ Send a image **",
                         parse_mode='markdown',
                         reply_markup=back_markup())
-    
     if msg.text=='🚫 Cancel':
         await bot.send_message(message.message.chat.id,"Terminated",reply_markup=empty_markup())
     else:
-        await bot.download_media(message=msg,file_name='image.jpg',progress=progress)
-        await bot.send_message(message.message.chat.id,f"Saved Sucessfully\n\n",
-                                reply_markup=empty_markup(),
-                                disable_web_page_preview=True)  
+        if msg.media==True:
+            await bot.download_media(message=msg,file_name='image.jpg',progress=progress)
+            await bot.send_message(message.message.chat.id,f"Saved Sucessfully\n\n",
+                                    reply_markup=empty_markup(),
+                                    disable_web_page_preview=True)  
+        else:
+            await bot.send_message(message.from_user.id,"Invalid Action",reply_markup=empty_markup())
         
         
 def progress(current, total):
