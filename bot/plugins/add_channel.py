@@ -7,6 +7,7 @@ from bot.database.models.channel_db import is_channel_ban,is_channel_exist,chann
 from bot.utils.markup import start_markup,back_markup,empty_markup
 from bot.utils.is_admin import is_bot_admin
 from pyrogram.errors.exceptions.bad_request_400 import ChatAdminRequired,ChannelPrivate
+from bot.database.models.settings_db import get_subcribers_limit
 
 @Bot.on_callback_query(filters.regex('^add_channel$'))
 async def add_channel(bot : Client ,message : Message):
@@ -29,17 +30,20 @@ async def add_channel(bot : Client ,message : Message):
                 return
 
             if await is_bot_admin(bot,channel.forward_from_chat.id) is True:
+                limit=get_subcribers_limit()
                 subscribers=await bot.get_chat_members_count(channel_id)
-                #TODO :  SUBSCRIBERS LIMIT
-                description=await bot.ask(message.from_user.id,"<b>✅ Send description(max 5 words and 2 emojis)</b>")
-                admin_username=message.from_user.username
-                invite_link=await bot.export_chat_invite_link(channel_id)
-                channel_data(chat_id,channel_id,channel_name,subscribers,admin_username,description.text,invite_link)
-                details=f'✅ <b>Channel Submitted Sucessfully</b>\n\nChannel ID : {channel_id}\nChannel name :{channel_name}\nSubscribers : {subscribers}\nDescription : {description.text}'         
-                await bot.send_message(message.message.chat.id,details,reply_markup=empty_markup())
-                send_group_message=f'✅ <b>New Channel Submited!<b>\n\nChannel ID : {channel_id}\nChannel name :{channel_name}\nSubscribers : {subscribers}\nDescription : {description.text}\nSubmitted By : @{admin_username}'
-                await bot.send_message(SUPPORT_GROUP,send_group_message)
-                LOGGER.info(f"Channel Added {channel_name}")
+                if  subscribers >= limit:
+                    description=await bot.ask(message.from_user.id,"<b>✅ Send description(max 5 words and 2 emojis)</b>")
+                    admin_username=message.from_user.username
+                    invite_link=await bot.export_chat_invite_link(channel_id)
+                    channel_data(chat_id,channel_id,channel_name,subscribers,admin_username,description.text,invite_link)
+                    details=f'✅ <b>Channel Submitted Sucessfully</b>\n\nChannel ID : {channel_id}\nChannel name :{channel_name}\nSubscribers : {subscribers}\nDescription : {description.text}'         
+                    await bot.send_message(message.message.chat.id,details,reply_markup=empty_markup())
+                    send_group_message=f'✅ <b>New Channel Submited!<b>\n\nChannel ID : {channel_id}\nChannel name :{channel_name}\nSubscribers : {subscribers}\nDescription : {description.text}\nSubmitted By : @{admin_username}'
+                    await bot.send_message(SUPPORT_GROUP,send_group_message)
+                    LOGGER.info(f"Channel Added {channel_name}")
+                else:
+                    await bot.send_message(message.from_user.id,f"You need minimum {limit} subscribers to register",reply_markup=empty_markup())
             else:
                 await bot.send_message(channel.chat.id,"<b> ❌ Bot is not admin</b>",reply_markup=empty_markup())
         

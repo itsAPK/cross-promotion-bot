@@ -17,39 +17,7 @@ class Settings(base):
 
 Settings.__table__.create(checkfirst=True)
 
-class Post(base):
-    __tablename__ = 'post'
-    id = Column(Integer, primary_key=True)
-    emoji=Column(String,default=None)
-    set_top=Column(String,default=None)
-    set_bottom=Column(String,default=None)
-    set_caption=Column(String,default=None)
 
-    def __init__(self,emoji,set_top,set_bottom,set_caption):
-        self.emoji=emoji
-        self.set_top=set_top
-        self.set_bottom=set_bottom
-        self.set_caption=set_caption
-
-    def __repr__(self):
-        return f'{self.id}'
-
-Post.__table__.create(checkfirst=True)
-
-class Button(base):
-    __tablename__ = 'button'
-    id = Column(Integer, primary_key=True)
-    set_button_name=Column(String)
-    set_button_url=Column(String)
-
-    def __init__(self,set_button_name,set_button_url):
-        self.set_button_name=set_button_name
-        self.set_button_url=set_button_url
-
-    def __repr__(self):
-        return f'{self.id}'
-
-Button.__table__.create(checkfirst=True)
 
 LOCK=threading.RLock()
 
@@ -77,4 +45,9 @@ def get_settings():
     try:
         return session.query(Settings).first()
     finally:
-        session.close()
+        session.close() 
+        
+        
+def get_subcribers_limit():
+    limit=session.query(Settings).first()
+    return limit.subs_limit
