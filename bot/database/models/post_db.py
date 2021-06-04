@@ -7,10 +7,10 @@ import threading
 class Post(base):
     __tablename__ = 'post'
     id = Column(Integer, primary_key=True)
-    emoji=Column(String,default=" ")
-    set_top=Column(String,default=" ")
-    set_bottom=Column(String,default=" ")
-    set_caption=Column(String,default=" ")
+    emoji=Column(String,default=None)
+    set_top=Column(String,default=None)
+    set_bottom=Column(String,default=None)
+    set_caption=Column(String,default=None)
 
     def __init__(self,emoji,set_top,set_bottom,set_caption):
         self.emoji=emoji
@@ -59,59 +59,59 @@ def delete_button():
         session.close()
                 
 def add_emoji(emoji):
-    try:
+    
         post=session.query(Post).filter(Post.id == 1).first()
         with LOCK:
             if not post:
-                    session.add(Post(emoji=emoji,set_bottom=" ",set_caption=" ",set_top=" "))
+                    session.add(Post(emoji=emoji,set_bottom=None,set_caption=None,set_top=None))
                     session.commit()
             else:
                 session.query(Post).filter(Post.id==1).update({Post.emoji:emoji})
                 session.commit()
-    finally:
-        session.close()
+    
     
 def add_caption(caption):
-    try:
+    
         post=session.query(Post).filter(Post.id == 1).first()
         with LOCK:
             if not post:
-                    session.add(Post(emoji=" ",set_bottom=" ",set_caption=caption,set_top=" "))
+                    session.add(Post(emoji=None,set_bottom=None,set_caption=caption,set_top=None))
                     session.commit()
             else:
                 session.query(Post).filter(Post.id==1).update({Post.set_caption:caption})
                 session.commit()
-    finally:
-        session.close()
+
         
 def add_top_text(text):
-    try:
+    
         post=session.query(Post).filter(Post.id == 1).first()
         with LOCK:
             if not post:
-                    session.add(Post(emoji=" ",set_bottom=" ",set_caption=" ",set_top=text))
+                    session.add(Post(emoji=None,set_bottom=None,set_caption=None,set_top=text))
                     session.commit()
             else:
                 session.query(Post).filter(Post.id==1).update({Post.set_top:text})
                 session.commit()
-    finally:
-        session.close()
+
         
 def add_bottom_text(text):
-    try:
+    
         post=session.query(Post).filter(Post.id == 1).first()
         with LOCK:
             if not post:
-                    session.add(Post(emoji=" ",set_bottom=text,set_caption=" ",set_top=" "))
+                    session.add(Post(emoji=None,set_bottom=text,set_caption=None,set_top=None))
                     session.commit()
             else:
                 session.query(Post).filter(Post.id==1).update({Post.set_bottom:text})
                 session.commit()
-    finally:
-        session.close()
+   
         
 def get_buttons():
-    try:
+    
         return  session.query(Button).all()
-    finally:
-        session.close()
+  
+        
+def get_post():
+    
+        return  session.query(Post).filter(Post.id==1).first()
+   

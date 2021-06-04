@@ -4,7 +4,7 @@ from bot.database import base,session
 import datetime
 from bot import LOGGER
 import threading
-
+from bot.database.models.settings_db import get_list_size
 LOCK=threading.RLock()
 
 class Channel(base):
@@ -153,3 +153,7 @@ def get_user_channel_count(chat_id):
     finally:
         session.close()
         
+def chunck():
+    l=[r.channel_id for r in session.query(Channel).distinct()]
+    for i in range(0,len(l),):
+        yield l[i:i+get_list_size()]

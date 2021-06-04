@@ -51,3 +51,7 @@ def get_settings():
 def get_subcribers_limit():
     limit=session.query(Settings).first()
     return limit.subs_limit
+
+def get_list_size():
+    limit=session.query(Settings).first()
+    return limit.list_size

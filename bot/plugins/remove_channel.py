@@ -18,4 +18,5 @@ async def remove_channel_handler(bot : Client, message : Message):
         await bot.edit_message_text(message.from_user.id,message.message.message_id,"🗑 Channel Removed Sucessfully",reply_markup=start_markup())
     except Exception:
         await bot.answer_callback_query(message.id,text="⚠️ Channel not exists",show_alert=True)
+        await bot.send_message(LOG_CHANNEL,f'\n<code>{traceback.format_exc()}</code>\n\nTime : {time.ctime()} UTC',parse_mode='html')
 

@@ -89,3 +89,12 @@ def promo_button_markup():
     button=[[InlineKeyboardButton(x.name,url=x.url),] for x in buttons]
     markup=InlineKeyboardMarkup(button)
     return markup  
+
+def preview_list_markup():
+    button_promo=InlineKeyboardButton('🔳 Button Promo',callback_data='preview_button_promo')
+    classic_promo=InlineKeyboardButton('🏛 Classic Promo',callback_data='preview_classic_promo')
+    morden_promo=InlineKeyboardButton('🔰 Standard Promo',callback_data='preview_morden_promo')
+    descpromo=InlineKeyboardButton('🎐 Description Promo',callback_data='preview_desc_promo')
+    back=InlineKeyboardButton('🔙 Back',callback_data='back')
+    markup=InlineKeyboardMarkup([[button_promo,classic_promo],[morden_promo,descpromo],[back]])
+    return markup
