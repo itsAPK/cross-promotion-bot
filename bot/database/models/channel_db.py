@@ -156,4 +156,4 @@ def get_user_channel_count(chat_id):
 def chunck():
     l=[r.channel_id for r in session.query(Channel).distinct()]
     for i in range(0,len(l),):
-        yield l[i:i+get_list_size()]
+        yield l[i:i+get_list_size()]   

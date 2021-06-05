@@ -98,3 +98,11 @@ def preview_list_markup():
     back=InlineKeyboardButton('🔙 Back',callback_data='back')
     markup=InlineKeyboardMarkup([[button_promo,classic_promo],[morden_promo,descpromo],[back]])
     return markup
+
+def announce_markup():
+    open_reg=InlineKeyboardButton('📖 Open Registration',callback_data='open_reg')
+    close_reg=InlineKeyboardButton('📕 Close Registration',callback_data='close_reg')
+    list_out=InlineKeyboardButton('📰 List Out Notification',callback_data='list_out')
+    back=InlineKeyboardButton('🔙 Back',callback_data='back')
+    markup=InlineKeyboardMarkup([[open_reg,close_reg],[list_out],[back]])
+    return markup
