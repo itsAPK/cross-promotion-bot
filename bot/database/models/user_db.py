@@ -96,3 +96,7 @@ def total_admin():
 
 def get_all_user_data():
     return session.query(User).all()
+
+def get_user_username(chat_id):
+    user=session.query(User).filter(User.chat_id==chat_id).first()
+    return user.username

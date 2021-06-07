@@ -45,7 +45,7 @@ def admin_markup():
     create_post=InlineKeyboardButton('📝 Create Post',callback_data='create_post')
     preview_list=InlineKeyboardButton('⏮ Preview Promo',callback_data='preview')
     send_promo=InlineKeyboardButton('✔️ Send Promo',callback_data='send_promo')
-    dlt_promo=InlineKeyboardButton('✖️ Delete Promo',callback_data='dlt_promo')
+    dlt_promo=InlineKeyboardButton('✖️ Delete Promo',callback_data='delete_promotion')
     task=InlineKeyboardButton('⚙️ Settings',callback_data='settings')
     add_admin=InlineKeyboardButton('🛠 Add Admin',callback_data='add_admin')
     sendpaidpromo=InlineKeyboardButton('💲Send Paid Promo',callback_data='send_paid_promo')
@@ -105,4 +105,14 @@ def announce_markup():
     list_out=InlineKeyboardButton('📰 List Out Notification',callback_data='list_out')
     back=InlineKeyboardButton('🔙 Back',callback_data='back')
     markup=InlineKeyboardMarkup([[open_reg,close_reg],[list_out],[back]])
+    return markup
+
+
+def send_promo_markup():
+    button_promo=InlineKeyboardButton('🔳 Button Promo',callback_data='send_button_promo')
+    classic_promo=InlineKeyboardButton('🏛 Classic Promo',callback_data='send_classic_promo')
+    morden_promo=InlineKeyboardButton('🔰 Standard Promo',callback_data='send_standard_promo')
+    descpromo=InlineKeyboardButton('🎐 Description Promo',callback_data='send_desc_promo')
+    back=InlineKeyboardButton('🔙 Back',callback_data='back')
+    markup=InlineKeyboardMarkup([[button_promo,classic_promo],[morden_promo,descpromo],[back]])
     return markup

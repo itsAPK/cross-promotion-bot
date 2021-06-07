@@ -51,3 +51,26 @@ def delete_paid_promo():
     with LOCK:
         session.query(PaidPromo).delete()
         session.commit()
+        
+        
+def save_message_ids(channel_id,message_id):
+    promo=session.query(Promo).filter(Promo.channel ==channel_id).all()
+    if not len(promo):
+        session.add(Promo(channel=channel_id,message_id=message_id))
+        session.commit()
+    if len(promo):
+        session.query(Promo).filter(Promo.channel ==channel_id).update({Promo.message_id:message_id})
+        session.commit()
+        
+        
+def get_promo():
+    try:
+        return session.query(Promo).all()
+    finally:
+        session.close()
+        
+def delete_promo():
+    with LOCK:
+        session.query(Promo).delete()
+        session.commit()
+        
